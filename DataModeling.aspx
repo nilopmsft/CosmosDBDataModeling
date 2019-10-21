@@ -9,7 +9,9 @@
             <div class="content">
                 The 'Data Model' dropdown provides the different models used for the documents stored in our Cosmos DB. Enter a movie, actor or genre name in the search.  
                 Movies will generally have the same query cost so an actor is highly recommended for demoing. Note that the search value is literal i.e. case, spaces, characters, etc matter. 
-                <br /><br />  For overall discussion on the demo scroll down on the demo page.
+                <br />
+                <br />
+                For overall discussion on the demo scroll down on the demo page.
             </div>
         </div>
     </div>
@@ -155,8 +157,9 @@
                 </table>
             </div>
             <p>
-                Since the initial query is not a point query as we are using a partition value but not partition value + ID of the
-    document, we are going to see general cost of about 3 RU's even on a single small document result. Searching on an
+                Since the initial query is not a 
+                <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.container.readitemasync?view=azure-dotnet" target="_blank">point read</a>
+                as we are using a partition value but not partition value + ID of the document, we are going to see general cost of about 3 RU's even on a single small document result. Searching on an
     actor results in a fanout query across all partitions as we do not know which documents contains those values
     increasing RU Cost.
     The Movie Select portion is very cheap because we are able to know the exact movie the user
